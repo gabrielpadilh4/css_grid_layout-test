@@ -1,0 +1,85 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #7159c1;
+}
+
+header {
+    background: yellow;
+    grid-area: header;
+
+    animation-name: fade;
+    animation-duration: 1s;
+}
+
+main {
+    background: blue;
+    grid-area: main;
+
+    animation-name: spinner;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+aside {
+    background: green;
+    grid-area: aside;
+
+    animation-name: move;
+    animation-duration: 3s;
+}
+
+footer {
+    background: red;
+    grid-area: footer;
+
+    animation-name: fade;
+    animation-duration: 4s;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 10vh 80vh 10vh;
+    /* grid-gap: 20px 50px; */
+    grid-template-areas: "header header"
+                         "main aside"
+                         "footer footer";
+}
+
+/* Animation */
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes move {
+    from {
+        opacity: 0;
+        transform: translateX(-35%);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+        transform: translateX(0%);
+    }
+}
+
+@keyframes spinner {
+    from {
+       transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-45deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
